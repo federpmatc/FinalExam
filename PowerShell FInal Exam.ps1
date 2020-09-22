@@ -1,7 +1,7 @@
 #PowewerShell - Final Exam
 #Student Name: Xheksi Biba
 #Course #: ITNet-159
-#Date:
+#Date: 09-22-20
 ##########################################################
 
 #Question #1
