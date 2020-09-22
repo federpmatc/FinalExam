@@ -1,6 +1,6 @@
 #PowewerShell - Final Exam
-#Student Name:
-#Course #:
+#Student Name: Xheksi Biba
+#Course #: ITNet-159
 #Date:
 ##########################################################
 
