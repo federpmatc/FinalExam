@@ -1,4 +1,4 @@
-﻿New-Item -Path "C:\" -Name "Employees" -ItemType Directory -Force
+New-Item -Path "C:\" -Name "Employees" -ItemType Directory -Force
 New-Item -Path "C:\Employees" -Name "TimeSheets" -ItemType Directory
 New-Item -Path "C:\" -Name "TestPermissions" -ItemType Directory -Force
 
@@ -37,18 +37,18 @@ $acl | Set-Acl C:\TestPermissions
 
 $acl = Get-acl "C:\Employees"
 #assign read permissions to C:\Employees
-$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-112\GG_Factory","ReadAndExecute","ContainerInherit, ObjectInherit", "None","Allow")
+$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-154\GG_Factory","ReadAndExecute","ContainerInherit, ObjectInherit", "None","Allow")
 $acl.SetAccessRule($AccessRule)
-$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-112\GG_Office","ReadAndExecute","ContainerInherit, ObjectInherit", "None","Allow")
+$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-154\GG_Office","ReadAndExecute","ContainerInherit, ObjectInherit", "None","Allow")
 $acl.SetAccessRule($AccessRule)
 $acl | Set-Acl C:\employees
 $acl | fl
 
 #assign Write permissions to C:\Employees\TimeSheets
 $acl = Get-acl "C:\Employees\TimeSheets"
-$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-112\GG_Factory","Write","ContainerInherit, ObjectInherit", "None","Allow")
+$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-154\GG_Factory","Write","ContainerInherit, ObjectInherit", "None","Allow")
 $acl.SetAccessRule($AccessRule)
-$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-112\GG_Office","Write","ContainerInherit, ObjectInherit", "None","Allow")
+$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("ITNET-154\GG_Office","Write","ContainerInherit, ObjectInherit", "None","Allow")
 $acl.SetAccessRule($AccessRule)
 $acl | Set-Acl C:\employees\TimeSheets
 $acl | fl
