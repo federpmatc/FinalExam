@@ -1,15 +1,15 @@
-﻿#The following script can be used to create bulk users
+#The following script can be used to create bulk users
 #Create 20 Users.ps1
-#3/9/2019
+#11/9/2021
 
 #$DomainName set to your domain
-$domainName = "ITNET-112.pri"
+$domainName = "ITNET-154.pri"
 
 #$Path should be set to the distinguished name of the OU where users will be created
 #The following will show Distinguished Names for all OUs
 Get-ADOrganizationalUnit -Filter * | select-object name, distinguishedname
 
-$path = "OU=TempEmployees,DC=ITNET-112,DC=pri"
+$path = "OU=TempEmployees,DC=ITNET-154,DC=pri"
 
 #$total should be set to how many users you want to create
 $total=20
@@ -28,9 +28,6 @@ New-ADUser -AccountPassword (ConvertTo-SecureString "Password01" -AsPlainText -F
 }
 
 Get-ADUser -Filter * -SearchBase $path
-
-
-
 
 
 
