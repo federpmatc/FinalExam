@@ -1,7 +1,7 @@
-﻿#Move Users.ps1
+#Move Users.ps1
 
-$factory ="OU=Factory,OU=Employees,DC=ITNET-112,DC=pri"
-$office = "OU=Office,OU=Employees,DC=ITNET-112,DC=pri"
+$factory ="OU=Factory,OU=Employees,DC=ITNET-154,DC=pri"
+$office = "OU=Office,OU=Employees,DC=ITNET-154,DC=pri"
 
 #Move Employee1..10 to $factory
 for ($UserIndex=1; $UserIndex -le 10; $UserIndex++)
