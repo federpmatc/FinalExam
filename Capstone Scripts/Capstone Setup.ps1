@@ -89,14 +89,14 @@ Add-DhcpServerInDC
 
 #Remove notification
 Set-ItemProperty `
-        ñPath registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\Roles\12 `
-        ñName ConfigurationState `
-        ñValue 2
+        Path registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ServerManager\Roles\12 `
+        Name ConfigurationState `
+        Value 2
 
 #############################
 ##Create a DHCP scope for the 192.168.20.0 subnet called Main Scope w/ a range of 192.168.20.200-.250
     Add-DhcpServerv4Scope `
-        -Name ì192.168.20.0î `
+        -Name ì192.168.20.0 `
         -StartRange 192.168.20.200 `
         -EndRange 192.168.20.250 `
         -SubnetMask 255.255.255.0 `
