@@ -141,6 +141,7 @@ Get-NetIPConfiguration
     Restart-computer -Force 
     
     $Domaincred = Get-Credential -Credential "ITNET-154\administrator"  #Domain Credentials
+    Import-Module Microsoft.PowerShell.Management -UseWindowsPowerShell 
     Add-Computer -DomainName ITNET-154.pri -credential $Domaincred -Restart
 
 #Verify Remote System is Domain Joined and in DNS
@@ -197,7 +198,9 @@ Get-NetIPConfiguration
 #Domain Join ServerB
     $Domaincred = Get-Credential -Credential "ITNET-154\administrator"  #Domain Credentials
     Invoke-command -ComputerName 192.168.20.252 -Credential "Administrator" -scriptblock {
-        Add-Computer -DomainName ITNET-154.pri -credential $using:Domaincred -Restart}
+         Import-Module Microsoft.PowerShell.Management -UseWindowsPowerShell 
+         Add-Computer -DomainName ITNET-154.pri -credential $using:Domaincred -Restart
+         }
 
     #if you enable PSR Remoting on the client, the following ilustrates that multiple commands can be executed simultaneously
     ICM -ComputerName dc2, client1 -ScriptBlock { 
