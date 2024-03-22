@@ -78,10 +78,12 @@ Get-ADGroup -Filter * | Select-Object name, groupscope
 
 #endregion - Install AD Domain Services
 
+###################################################################################
 #region - config DHCP
 Add-WindowsFeature -IncludeManagementTools dhcp
-#Add local DCHP groups ìDHCP Administratorsî and ìDHCP Usersî 
+#Add local DCHP groups DHCP Administrators and DHCP User 
 #https://blogs.technet.microsoft.com/craigf/2013/06/23/installing-dhcp-on-windows-server-2012-did-not-create-the-local-groups/
+
 netsh dhcp add securitygroups
 
 #Authorize DHCP Server
