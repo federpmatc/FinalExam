@@ -1,5 +1,5 @@
 #Capstone Setup.ps1
-#12/24/2021
+#3/24/2024
 
 #region - Config IP and Computer Name
 Get-ChildItem env:
@@ -114,8 +114,6 @@ New-ADOrganizationalUnit -Name Factory -Path "OU=Workstations, DC=ITNET-154, DC=
 #endregion - Create OUs
 
 #region - Create User Accounts
-
-# Run Create 20 Users
 #Create Admin1, Admin2
 New-ADUser `
 -AccountPassword (ConvertTo-SecureString "Password01" -AsPlainText -Force) `
@@ -133,7 +131,7 @@ New-ADUser `
 -SamAccountName Admin2 `
 -UserPrincipalName ("Admin2@ITNET-154.pri")
 
-#Add Admin1 & Admin2 to Admin Groups
+#Add Admin1 & Admin2 to Domain Admin Groups
 Add-ADGroupMember -Identity 'Domain Admins' -Members 'Admin1','Admin2'
 
 Rename-ADObject -Identity "CN=Administrator,CN=Users,DC=ITNET-154,DC=pri" -NewName "Enterprise_Admin"
