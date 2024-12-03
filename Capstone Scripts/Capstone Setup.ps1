@@ -58,11 +58,11 @@ Set-ItemProperty `
         -Value 2
 
 #############################
-##Create a DHCP scope for the 192.168.20.0 subnet called Main Scope w/ a range of 192.168.20.200-.250
+##Create a DHCP scope for the 192.168.222.0 subnet called Main Scope w/ a range of 192.168.222.200-.250
     Add-DhcpServerv4Scope `
-        -Name ì192.168.20.0 `
-        -StartRange 192.168.20.200 `
-        -EndRange 192.168.20.250 `
+        -Name ì192.168.222.0 `
+        -StartRange 192.168.222.200 `
+        -EndRange 192.168.222.250 `
         -SubnetMask 255.255.255.0 `
         -ComputerName DC1 `
         -LeaseDuration 8:0:0:0 `
@@ -70,16 +70,15 @@ Set-ItemProperty `
 
     ##Set DHCP Scope Options including DNSserver, DnsDomain, and Router (aka Default Gateway) used by your clients
     Set-DhcpServerv4OptionValue  `
-        -ScopeId 192.168.20.0 `
+        -ScopeId 192.168.222.0 `
         -ComputerName DC1.ITNET-154.pri `
-        -DnsServer 192.168.20.101 `
+        -DnsServer 192.168.222.101 `
         -DnsDomain itnet-154.pri `
-        -Router 192.168.20.1 `
         -Verbose
 
     Get-DhcpServerv4Scope | FL
-    Get-DhcpServerv4Lease -ScopeId 192.168.20.0
-    Test-NetConnection 192.168.20.201
+    Get-DhcpServerv4Lease -ScopeId 192.168.222.0
+    Test-NetConnection 192.168.222.201
 #endregion - Config DHCP
 
 #region - Configure DNS Records
